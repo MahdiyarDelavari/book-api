@@ -31,4 +31,46 @@ app.post("/api/v1/books", async (req, res) => {
 	}
 });
 
+//get all books
+app.get("/api/v1/books", async (req, res) => {
+	try {
+		const books = await Book.find();
+		res.status(200).json(books);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
+//get a book
+app.get("/api/v1/books/:bookId", async (req, res) => {
+	try {
+		const book = await Book.findById(req.params.bookId);
+		res.status(200).json(book);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
+//delete a book
+app.delete("/api/v1/books/:bookId", async (req, res) => {
+	try {
+		await Book.findByIdAndDelete(req.params.bookId);
+		res.status(200).json({ message: "Book Deleted Successfully" });
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
+//update a book
+app.put("/api/v1/books/:bookId", async (req, res) => {
+	try {
+		const book = await Book.findByIdAndUpdate(req.params.bookId, req.body, {
+			new: true,
+		});
+		res.status(200).json(book);
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
 app.listen(port, () => console.log(`app listening on port ${port}!`));
