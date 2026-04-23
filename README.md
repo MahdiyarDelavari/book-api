@@ -1,8 +1,8 @@
-# P2 Book API
+# Book API
 
 ## Description
 
-The P2 Book API is a RESTful API built with Node.js, Express, and MongoDB. It allows users to manage a collection of books, including creating, reading, updating, and deleting book records.
+The Book API is a RESTful API built with Node.js, Express, and MongoDB. It allows users to manage a collection of books, including creating, reading, updating, and deleting book records.
 
 ## Features
 
@@ -21,11 +21,11 @@ To run this project, ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/MahdiyarDelavari/book-api.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd p2-book-api
+   cd book-api
    ```
 3. Install dependencies:
    ```bash
